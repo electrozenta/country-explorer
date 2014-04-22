@@ -21,16 +21,18 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th><a href="" ng-click="predicate = 'SeqID'; reverse = !reverse;">ID</a></th>
                         <th><a href="" ng-click="predicate = 'Name'; reverse = !reverse;">Name</a></th>
+                        <th><a href="" ng-click="predicate = 'Capital.Name'; reverse = !reverse;">Capital</a></th>
                         <th><a href="" ng-click="predicate = 'TelPref'; reverse = !reverse;">Code</a></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="country in countries | orderBy:predicate:reverse">
-                        <td>{{country.CountryCodes.isoN}}</td>
+                        <td>{{country.SeqID}}</td>
                         <td>{{country.Name}}</td>
-                        <td>{{country.TelPref || '-'}}</td>
+                        <td>{{country.Capital.Name || '-'}}</td>
+                        <td>{{country.TelPref && '+'}} {{country.TelPref || '-'}}</td>
                     </tr>
                 </tbody>
             </table>
