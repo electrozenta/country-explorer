@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <meta charset="UTF-8">
+    <title>Countries</title>
+</head>
+<body ng-app="countries">
+<div class="container">
+
+    <div ng-controller="CountryController">
+        <div class="panel panel-default">
+        	<!-- Default panel contents -->
+        	<div class="panel-heading">Countries Info Table</div>
+            <div class="panel-body">
+                <p>The table is based on ISO 3166-1 alpha-2</p>
+            </div>
+
+            <!-- Table -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th><a href="" ng-click="predicate = 'Name'; reverse = !reverse;">Name</a></th>
+                        <th><a href="" ng-click="predicate = 'TelPref'; reverse = !reverse;">Code</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="country in countries | orderBy:predicate:reverse">
+                        <td>{{country.CountryCodes.isoN}}</td>
+                        <td>{{country.Name}}</td>
+                        <td>{{country.TelPref || '-'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.6/angular.js"></script>
+<script src="app.js"></script>
+<script src="data.js"></script>
+</body>
+</html>
